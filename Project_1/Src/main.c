@@ -250,7 +250,9 @@ void TIM4_IRQHandler(void) {
 
             if (temperature_alert > 24 && humidity_alert > 80) {
                 GPIOC->ODR |= PC10_PIN;
+                lprint(0x80, "Motor ON...!");
                 delay_ms(5000);
+                lprint(0x80, "            ");
                 GPIOC->ODR &= ~PC10_PIN;
             }
         }
